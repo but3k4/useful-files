@@ -112,12 +112,30 @@ function! Python()
 
 endfunction
 
+" Go
+function! Go()
+
+    "configura o tab com 4 espacos
+    set tabstop=4 
+    "numeros de espacos usados no tab
+    set softtabstop=4
+    "numero de espacos usados para (auto)indent
+    set shiftwidth=4
+    "trabalha em conjunto com shiftwidth, tabstop e softtabstop.
+    set smarttab 
+    "Idem a opcao anterior
+    set expandtab
+
+endfunction
+
 " Carrega as funcoes de perl e python
 autocmd FileType perl call Perl()
 autocmd FileType python call Python()
+autocmd FileType go call Go()
 
 " Configuracoes do snippets
 au BufNewFile,BufRead *.snippets set noexpandtab
+au BufNewFile,BufRead *.go set filetype=go
 
 " Carrega os delimitadores para os arquivos abaixo
 let delimitMate_matchpairs = "(:),[:],{:},<:>"
