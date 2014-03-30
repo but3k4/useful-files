@@ -7,6 +7,7 @@ filetype plugin on
 
 syn on
 set ruler
+set magic
 set autoindent
 set nocompatible
 set backspace=indent,eol,start
@@ -18,7 +19,7 @@ set nohlsearch
 set mouse=
 color desert
 set fileformat=unix
-set pastetoggle=<C-S-p>
+hi Comment term=bold ctermfg=Red
 
 if has("unix")
 	let &shell="bash"
@@ -28,33 +29,15 @@ elseif has("linux")
 	set clipboard=autoselect
 endif
 
-highlight RedundantWhitespace ctermbg=red guibg=red
-
-map <F4> :runtime! syntax/2html.vim<CR>
-
-map <F5> <ESC>:%s///g<CR>
-map <F6> <ESC>:%s/^ *//g<CR>
-map <F7> <ESC>:%s/ *$//g<CR>
-map <F8> <ESC>:%s/  / /g<CR>
-
-map _n :set invnumber<CR>
 map Q :q
-
 cab W w
 cab Q q
 cab Wq wq
 cab wQ wq
 cab WQ wq
 
-vmap _c : s/^/#/g<CR>
-vmap _C : s/^#//g<CR>
-nmap _c : s/^/#/g<CR>
-nmap _C : s/^#//g<CR>
-
 vmap <TAB> >gv
 vmap <S-TAB> <gv
-
-map <silent> <C-x> :let &background = ( &background == "dark"?"light" : "dark" )<CR>
 
 function! Perl()
     set smartindent
